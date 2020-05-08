@@ -5,7 +5,8 @@ const USER = tcomb.struct({
     id: tcomb.String,
     name: tcomb.String,
     login: tcomb.String,
-    age: tcomb.Number
+    age: tcomb.Number,
+    password: tcomb.String
 }, {strict: true})
 
 const users = [
