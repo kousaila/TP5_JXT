@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const checkAuth=require('../midlware/check-auth')
 
 let usersModel = undefined
 
@@ -15,7 +16,7 @@ router.use((req, res, next) => {
 })
 
 /* GET a specific user by id */
-router.get('/:id', function (req, res, next) {
+router.get('/:id',checkAuth, function (req, res, next) {
   const id = req.params.id
 
   /* istanbul ignore else */
@@ -44,7 +45,7 @@ router.get('/:id', function (req, res, next) {
 })
 
 /* Add a new user. */
-router.post('/', function (req, res, next) {
+router.post('/', checkAuth, function (req, res, next) {
   const newUser = req.body
 
   /* istanbul ignore else */
@@ -69,7 +70,7 @@ router.post('/', function (req, res, next) {
 })
 
 /* Update a specific user */
-router.patch('/:id', function (req, res, next) {
+router.patch('/:id',checkAuth,  function (req, res, next) {
   const id = req.params.id
   const newUserProperties = req.body
 
@@ -101,7 +102,7 @@ router.patch('/:id', function (req, res, next) {
 })
 
 /* REMOVE a specific user by id */
-router.delete('/:id', function (req, res, next) {
+router.delete('/:id', checkAuth, function (req, res, next) {
   const id = req.params.id
 
   /* istanbul ignore else */
@@ -132,7 +133,7 @@ router.delete('/:id', function (req, res, next) {
 })
 
 /* GET all users */
-router.get('/', function (req, res, next) {
+router.get('/',checkAuth,  function (req, res, next) {
   res.json(usersModel.getAll())
 })
 

@@ -1,0 +1,268 @@
+{
+	"info": {
+		"_postman_id": "fc30ae2e-1254-4a3b-a0d5-8d90a1a2fcb0",
+		"name": "tp5",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get all users with auth",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiJ9.cGVkcm8.WUuy0s1xF4865dNHMGdqYiyjo7_czpPV7mlcrZLvUEk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:3000/v1/users/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get one user without auth",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/v1/users/45745c60-7b1a-11e8-9c9c-2d42b21b1a3e",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"users",
+						"45745c60-7b1a-11e8-9c9c-2d42b21b1a3e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add single user with auth",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiJ9.cGVkcm8.WUuy0s1xF4865dNHMGdqYiyjo7_czpPV7mlcrZLvUEk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"Kousaila\",\n\t\"login\":\"TIDJET\",\n\t\"age\":24,\n\t\"password\":\"nanananana\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/v1/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "koukou login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"login\": \"pedro\",\n\t\"password\": \"koukou\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/v1/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verify acces",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiJ9.cGVkcm8.2OrLFQVIHlVQ79h4L2acL9UbKw6_J1zdGCPb4tU58sA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/v1/auth/verifyaccess",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"auth",
+						"verifyaccess"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get one user with auth",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiJ9.cGVkcm8.WUuy0s1xF4865dNHMGdqYiyjo7_czpPV7mlcrZLvUEk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:3000/v1/users/45745c60-7b1a-11e8-9c9c-2d42b21b1a3e",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"users",
+						"45745c60-7b1a-11e8-9c9c-2d42b21b1a3e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update with auth",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiJ9.cGVkcm8.WUuy0s1xF4865dNHMGdqYiyjo7_czpPV7mlcrZLvUEk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"Robertinio\",\n\t\"password\":\"tintin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/v1/users/45745c60-7b1a-11e8-9c9c-2d42b21b1a3e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"users",
+						"45745c60-7b1a-11e8-9c9c-2d42b21b1a3e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete user with auth",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiJ9.cGVkcm8.WUuy0s1xF4865dNHMGdqYiyjo7_czpPV7mlcrZLvUEk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/v1/users/45745c60-7b1a-11e8-9c9c-2d42b21b1a3e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"users",
+						"45745c60-7b1a-11e8-9c9c-2d42b21b1a3e"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

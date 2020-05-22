@@ -35,7 +35,27 @@ describe('Authentification tests', () => {
                 done()
             })
     })
-    it('should not have access', done => {
+    it('should have access', done => {
+        chai
+            .request(app)
+            .post('/v1/auth/login')
+            .send({login: 'pedro', password: 'azerty'})
+            .end((err, res) => {
+                const ttoken = res.body.access_token
+                chai
+                    .request(app)
+                    .get('/v1/auth/verifyaccess')
+                    .set('Authorization', `bearer ${ttoken}`)
+                    .end((error, response) => {
+                        response.should.have.status(200)
+                        response.should.be.json
+                        response.body.should.have.property('message')
+                        response.body.message.should.eql('OK')
+                        done()
+                    })
+            })
+    })
+    it('should not have access with wrong token', done => {
         chai
             .request(app)
             .post('/v1/auth/login')
@@ -54,7 +74,7 @@ describe('Authentification tests', () => {
                     })
             })
     })
-    it('should have access', done => {
+    it('should not have access without token', done => {
        chai
         .request(app)
         .post('/v1/auth/login')

@@ -43,7 +43,7 @@ router.get('/verifyaccess', function(req, res, next) {
             })
             .catch((exc) => {
                 res
-                    .status(402)
+                    .status(401)
                     .json({message: 'Unauthorized'})
             })
     } else {
